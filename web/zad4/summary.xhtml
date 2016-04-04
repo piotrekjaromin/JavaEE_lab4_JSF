@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:outputLabel value="#{modelingAgencyBean.currentModel.name}"/>
+    <h:outputLabel value="#{modelingAgencyBean.currentModel.surname}"/>
+    <h:outputLabel value="#{modelingAgencyBean.currentModel.address.country}"/>
+    <h:outputLabel value="#{modelingAgencyBean.currentModel.address.city}"/>
+    <h:outputLabel value="#{modelingAgencyBean.currentModel.address.number}"/>
+    <h:outputLabel value="#{modelingAgencyBean.currentModel.phoneNumber}"/>
+    <h:outputLabel value="#{modelingAgencyBean.currentModel.mail}"/>
+    <h:outputLabel value="#{modelingAgencyBean.currentModel.age}"/>
+    <h:outputLabel value="#{modelingAgencyBean.currentModel.height}"/>
+    <h:outputLabel value="#{modelingAgencyBean.currentModel.weight}"/>
+    <h:outputLabel value="#{modelingAgencyBean.currentModel.hairColor}"/>
+    <h:outputLabel value="#{modelingAgencyBean.currentModel.eyeColor}"/>
+    <h:outputLabel value="#{modelingAgencyBean.currentModel.clothSize}"/>
+    <h:outputLabel value="#{modelingAgencyBean.currentModel.shoesSize}"/>
+    <h:outputLabel value="#{modelingAgencyBean.currentModel.experience}"/>
+    <h:outputLabel value="#{modelingAgencyBean.currentModel.sex}"/>
+
+    <h:panelGroup rendered='#{modelingAgencyBean.currentModel.sex.equals("male"))}' >
+        <h:outputLabel value="#{modelingAgencyBean.currentModel.additionalData.chest}"/>
+        <h:outputLabel value="#{modelingAgencyBean.currentModel.additionalData.waist}"/>
+        <h:outputLabel value="#{modelingAgencyBean.currentModel.additionalData.legLength}"/>
+    </h:panelGroup>
+
+    <h:panelGroup rendered='#{modelingAgencyBean.currentModel.sex.equals("female"))}' >
+        <h:outputLabel value="#{modelingAgencyBean.currentModel.additionalData.bustSize}"/>
+        <h:outputLabel value="#{modelingAgencyBean.currentModel.additionalData.cupSize}"/>
+        <h:outputLabel value="#{modelingAgencyBean.currentModel.additionalData.waist}"/>
+        <h:outputLabel value="#{modelingAgencyBean.currentModel.additionalData.hips}"/>
+        <h:outputLabel value="#{modelingAgencyBean.currentModel.additionalData.legLength}"/>
+    </h:panelGroup>
+
+</f:view>
+</html>
