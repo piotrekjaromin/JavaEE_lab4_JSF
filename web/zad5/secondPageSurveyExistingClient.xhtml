@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:form>
+        <h:panelGroup rendered="#{shopSurvey.currentSurvey.sex == 'male'}">
+
+            Kiedy ostatnio robiłeś u nas zakupy?<br/>
+            <h:selectOneMenu value="#{shopSurvey.currentSurvey.userType.lastShopping}">
+                <f:selectItem itemValue="Wczoraj" itemLabel="Wczoraj"/>
+                <f:selectItem itemValue="W zeszlym tygodniu" itemLabel="W zeszlym tygodniu"/>
+                <f:selectItem itemValue="W zeszlym miesiacu" itemLabel="W zeszlym miesiacu"/>
+                <f:selectItem itemValue="Kilka miesiecy temu" itemLabel="Kilka miesiecy temu"/>
+                <f:selectItem itemValue="Nie pamietam" itemLabel="Nie pamietam"/>
+            </h:selectOneMenu><br/>
+
+            Czy jesteś zadowolony z zakupu?<br/>
+            <h:selectOneMenu value="#{shopSurvey.currentSurvey.userType.happyShopping}">
+                <f:selectItem itemValue="Tak" itemLabel="Tak"/>
+                <f:selectItem itemValue="Raczej tak" itemLabel="Raczej tak"/>
+                <f:selectItem itemValue="Raczej nie" itemLabel="Raczej nie"/>
+                <f:selectItem itemValue="Nie" itemLabel="Nie"/>
+                <f:selectItem itemValue="Nie wiem" itemLabel="Nie wiem"/>
+            </h:selectOneMenu><br/>
+
+            Czy jesteś zadowolony z z naszych pracowników?<br/>
+            <h:selectOneMenu value="#{shopSurvey.currentSurvey.userType.happyWorker}">
+                <f:selectItem itemValue="Tak" itemLabel="Tak"/>
+                <f:selectItem itemValue="Raczej tak" itemLabel="Raczej tak"/>
+                <f:selectItem itemValue="Raczej nie" itemLabel="Raczej nie"/>
+                <f:selectItem itemValue="Nie" itemLabel="Nie"/>
+                <f:selectItem itemValue="Nie wiem" itemLabel="Nie wiem"/>
+            </h:selectOneMenu><br/>
+        </h:panelGroup>
+
+        <h:panelGroup rendered="#{shopSurvey.currentSurvey.sex == 'female'}">
+
+            Kiedy ostatnio robiłaś u nas zakupy?<br/>
+            <h:selectOneMenu value="#{shopSurvey.currentSurvey.userType.lastShopping}">
+                <f:selectItem itemValue="Wczoraj" itemLabel="Wczoraj"/>
+                <f:selectItem itemValue="W zeszlym tygodniu" itemLabel="W zeszlym tygodniu"/>
+                <f:selectItem itemValue="W zeszlym miesiacu" itemLabel="W zeszlym miesiacu"/>
+                <f:selectItem itemValue="Kilka miesiecy temu" itemLabel="Kilka miesiecy temu"/>
+                <f:selectItem itemValue="Nie pamietam" itemLabel="Nie pamietam"/>
+            </h:selectOneMenu><br/>
+
+            Czy jesteś zadowolona z zakupu?<br/>
+            <h:selectOneMenu value="#{shopSurvey.currentSurvey.userType.happyShopping}">
+                <f:selectItem itemValue="Tak" itemLabel="Tak"/>
+                <f:selectItem itemValue="Raczej tak" itemLabel="Raczej tak"/>
+                <f:selectItem itemValue="Raczej nie" itemLabel="Raczej nie"/>
+                <f:selectItem itemValue="Nie" itemLabel="Nie"/>
+                <f:selectItem itemValue="Nie wiem" itemLabel="Nie wiem"/>
+            </h:selectOneMenu><br/>
+
+            Czy jesteś zadowolona z z naszych pracowników?<br/>
+            <h:selectOneMenu value="#{shopSurvey.currentSurvey.userType.happyWorker}">
+                <f:selectItem itemValue="Tak" itemLabel="Tak"/>
+                <f:selectItem itemValue="Raczej tak" itemLabel="Raczej tak"/>
+                <f:selectItem itemValue="Raczej nie" itemLabel="Raczej nie"/>
+                <f:selectItem itemValue="Nie" itemLabel="Nie"/>
+                <f:selectItem itemValue="Nie wiem" itemLabel="Nie wiem"/>
+            </h:selectOneMenu><br/>
+        </h:panelGroup>
+
+
+            Wpisz swoje uwagi:<br/>
+            <h:inputTextarea cols="30" rows="10" value="#{shopSurvey.currentSurvey.userType.comments}"/><br/>
+
+
+            <h:commandButton id="send" action="#{shopSurvey.summary()}" value="summary"/>
+
+
+
+    </h:form>
+</f:view>
+</html>

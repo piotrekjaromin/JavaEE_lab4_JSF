@@ -50,14 +50,8 @@ public class ModelingAgencyManagedBean {
     }
 
     public String send() {
-
-        if(currentModel.getSex().equals("male")) {
-            currentModel.setAdditionalData(new AdditionalManData());
-            return "maleForm.xhtml";
-        }
-        else {
-            currentModel.setAdditionalData(new AdditionalWomanData());
-            return "femaleForm.xhtml";
-        }
+        modelingAgencyDatas.add(currentModel);
+        currentModel = new ModelingAgencyData();
+        return "success.xhtml";
     }
 }

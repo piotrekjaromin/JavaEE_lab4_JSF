@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:form>
+        name: <h:outputLabel value="#{shopSurvey.currentSurvey.name}"/><br/>
+        mail: <h:outputLabel value="#{shopSurvey.currentSurvey.mail}"/><br/>
+        zip code: <h:outputLabel value="#{shopSurvey.currentSurvey.zipCode}"/><br/>
+        age: <h:outputLabel value="#{shopSurvey.currentSurvey.age}"/><br/>
+        sex: <h:outputLabel value="#{shopSurvey.currentSurvey.sex}"/><br/>
+        education: <h:outputLabel value="#{shopSurvey.currentSurvey.education}"/><br/>
+        size: <h:outputLabel value="#{shopSurvey.currentSurvey.size}"/><br/>
+
+        <h:panelGroup rendered='#{shopSurvey.currentSurvey.customerType.equals("newCustomer")}'>
+            monthly cost: <h:outputLabel value="#{shopSurvey.currentSurvey.userType.monthlyCost}"/><br/>
+            generally shopping: <h:outputLabel value="#{shopSurvey.currentSurvey.userType.generallyShopping}"/><br/>
+            how often: <h:outputLabel value="#{shopSurvey.currentSurvey.userType.howOften}"/><br/>
+            color: <h:outputLabel value="#{shopSurvey.currentSurvey.userType.color}"/><br/>
+            clothes monstly buying: <h:outputLabel
+                value="#{shopSurvey.currentSurvey.userType.clothesMostlyBuying}"/><br/>
+        </h:panelGroup>
+
+        <h:panelGroup rendered='#{shopSurvey.currentSurvey.customerType.equals("existingCustomer")}'>
+            lastShopping: <h:outputLabel value="#{shopSurvey.currentSurvey.userType.lastShopping}"/><br/>
+            happyShopping: <h:outputLabel value="#{shopSurvey.currentSurvey.userType.happyShopping}"/><br/>
+            happyWorker: <h:outputLabel value="#{shopSurvey.currentSurvey.userType.happyWorker}"/><br/>
+            comments: <h:outputLabel value="#{shopSurvey.currentSurvey.userType.comments}"/><br/>
+        </h:panelGroup>
+        <h:commandButton id="send" action="#{shopSurvey.send()}" value="send"/>
+    </h:form>
+</f:view>
+</html>

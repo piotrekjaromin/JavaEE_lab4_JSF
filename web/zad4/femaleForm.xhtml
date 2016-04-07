@@ -8,7 +8,7 @@
 <f:view>
     <h:form>
         <h:panelGrid columns="3">
-            <h:outputLabel for="bustSize" value="name"/>
+            <h:outputLabel for="bustSize" value="bustSize"/>
             <h:inputText id="bustSize" value="#{modelingAgencyBean.currentModel.additionalData.bustSize}" required="true"/>
             <h:message for="bustSize"/>
 
@@ -29,7 +29,7 @@
             <h:message for="legLength"/>
 
             <h:outputLabel for="nextPage" value="nextPage"/>
-            <h:commandButton id="nextPage" action="#{modelingAgencyBean.send()}" value="next page" />
+            <h:commandButton id="nextPage" action="#{modelingAgencyBean.send()}" value="submit" />
 
         </h:panelGrid>
     </h:form>

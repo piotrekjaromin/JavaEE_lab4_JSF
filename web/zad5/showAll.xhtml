@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:form>
+        <ui:repeat value="#{shopSurvey.surveyDatas}" var="data">
+            name: <h:outputLabel value="#{data.name}"/><br/>
+            mail: <h:outputLabel value="#{data.mail}"/><br/>
+            zip code: <h:outputLabel value="#{data.zipCode}"/><br/>
+            age: <h:outputLabel value="#{data.age}"/><br/>
+            sex: <h:outputLabel value="#{data.sex}"/><br/>
+            education: <h:outputLabel value="#{data.education}"/><br/>
+            size: <h:outputLabel value="#{data.size}"/><br/>
+
+            <h:panelGroup rendered='#{data.customerType.equals("newCustomer")}'>
+                monthly cost: <h:outputLabel value="#{data.userType.monthlyCost}"/><br/>
+                generally shopping: <h:outputLabel value="#{data.userType.generallyShopping}"/><br/>
+                how often: <h:outputLabel value="#{data.userType.howOften}"/><br/>
+                color: <h:outputLabel value="#{data.userType.color}"/><br/>
+                clothes monstly buying: <h:outputLabel
+                    value="#{data.userType.clothesMostlyBuying}"/><br/>
+            </h:panelGroup>
+
+            <h:panelGroup rendered='#{data.customerType.equals("existingCustomer")}'>
+                lastShopping: <h:outputLabel value="#{data.userType.lastShopping}"/><br/>
+                happyShopping: <h:outputLabel value="#{data.userType.happyShopping}"/><br/>
+                happyWorker: <h:outputLabel value="#{data.userType.happyWorker}"/><br/>
+                comments: <h:outputLabel value="#{data.userType.comments}"/><br/>
+            </h:panelGroup><br/><br/>
+        </ui:repeat>
+    </h:form>
+</f:view>
+</html>

@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsf/html">
 <f:view>
     <h:form>
         <h:panelGrid columns="2">
@@ -13,12 +13,12 @@
 
             <h:outputLabel for="currencyFrom" value="currency from"/>
             <h:selectOneMenu value="#{currencyConverter.currencyFrom}" id="currencyFrom">
-                <f:selectItems value="#{currencyConverter.currencyList.currencyList}" var="currency" itemLabel="#{currency}" itemValue="#{currency}"/>
+                <f:selectItems value="#{currencyConverter.currencyList.currencyWithValue.keySet()}" var="currency" itemLabel="#{currency}" itemValue="#{currency}"/>
             </h:selectOneMenu>
 
             <h:outputLabel for="currencyTo" value="currency to"/>
             <h:selectOneMenu value="#{currencyConverter.currencyTo}" id="currencyTo">
-                <f:selectItems value="#{currencyConverter.currencyList.currencyList}" var="currency" itemLabel="#{currency}" itemValue="#{currency}"/>
+                <f:selectItems value="#{currencyConverter.currencyList.currencyWithValue.keySet()}" var="currency" itemLabel="#{currency}" itemValue="#{currency}"/>
             </h:selectOneMenu>
             <h:panelGroup/>
             <h:commandButton action="#{currencyConverter.convert()}" value="convert"/>

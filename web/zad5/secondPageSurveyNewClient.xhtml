@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:form>
+        Ile jesteś w stanie przeznaczyc miesięcznie na zakup ubrania?<br/>
+        <h:selectOneMenu id="montlyCost" value="#{shopSurvey.currentSurvey.userType.monthlyCost}" required="true">
+            <f:selectItem itemValue="do 100 zl" itemLabel="do 100 zl"/>
+            <f:selectItem itemValue="100 - 500 zl" itemLabel="100 - 500 zl"/>
+            <f:selectItem itemValue="500 - 1000 zl" itemLabel="500 - 1000 zl"/>
+            <f:selectItem itemValue="powyzej 1000 zl" itemLabel="powyzej 1000 zl"/>
+        </h:selectOneMenu><br/>
+
+
+        Gdzie najczęściej dokonujesz zakupów ubrania?"<br/>
+        <h:selectManyListbox id="generallyShopping" value="#{shopSurvey.currentSurvey.userType.generallyShopping}" required="true">
+            <f:selectItem itemValue="Sklep firmowy" itemLabel="Sklep firmowy"/>
+            <f:selectItem itemValue="Hipermarket" itemLabel="Hipermarket"/>
+            <f:selectItem itemValue="Bazar" itemLabel="Bazar"/>
+            <f:selectItem itemValue="Sklep z odzieza uzywana" itemLabel="Sklep z odzieza uzywana"/>
+        </h:selectManyListbox><br/>
+
+
+        Jak często dokonujesz zakupu ubrania?<br/>
+        <h:selectOneMenu value="#{shopSurvey.currentSurvey.userType.howOften}" required="true">
+            <f:selectItem itemValue="Codziennie" itemLabel="Codziennie"/>
+            <f:selectItem itemValue="Raz w tygodniu" itemLabel="Raz w tygodniu"/>
+            <f:selectItem itemValue="Raz w  miesiacu" itemLabel="Raz w miesiacu"/>
+            <f:selectItem itemValue="Kilka razy w roku" itemLabel="Kilka razy w roku"/>
+        </h:selectOneMenu><br/>
+
+        W jakich kolorach preferujesz ubrania?<br/>
+        <h:selectOneMenu value="#{shopSurvey.currentSurvey.userType.color}" required="true">
+            <f:selectItem itemValue="Kolorowo-jaskrawych" itemLabel="Kolorowo-jaskrawych"/>
+            <f:selectItem itemValue="Stonowanych w szarościach" itemLabel="Stonowanych w szarościach"/>
+            <f:selectItem itemValue="W czerni i bieli" itemLabel="W czerni i bieli"/>
+            <f:selectItem itemValue="W samej czerni" itemLabel="W samej czerni"/>
+        </h:selectOneMenu><br/>
+
+        <h:panelGroup rendered="#{shopSurvey.currentSurvey.sex == 'male'}">
+            Jakiego rodzaju ubrania najchętniej kupujesz?<br/>
+            <h:selectManyListbox value="#{shopSurvey.currentSurvey.userType.clothesMostlyBuying}">
+                <f:selectItem itemValue="spodnie" itemLabel="spodnie" />
+                <f:selectItem itemValue="spodenki" itemLabel="spodenki" />
+                <f:selectItem itemValue="garnitury" itemLabel="garnitury" />
+                <f:selectItem itemValue="koszule" itemLabel="koszule" />
+                <f:selectItem itemValue="krawaty" itemLabel="krawaty" />
+            </h:selectManyListbox><br/>
+        </h:panelGroup>
+
+        <h:panelGroup rendered="#{shopSurvey.currentSurvey.sex == 'female'}">
+            Jakiego rodzaju ubrania najchętniej kupujesz?<br/>
+            <h:selectManyListbox value="#{shopSurvey.currentSurvey.userType.clothesMostlyBuying}">
+                <f:selectItem itemValue="garsonki" itemLabel="garsonki" />
+                <f:selectItem itemValue="bluzki" itemLabel="bluzki" />
+                <f:selectItem itemValue="spodniczki" itemLabel="spodniczki" />
+                <f:selectItem itemValue="spodnie" itemLabel="spodnie" />
+            </h:selectManyListbox><br/>
+        </h:panelGroup>
+        <h:commandButton id="send" action="#{shopSurvey.summary()}" value="summary"/>
+
+    </h:form>
+
+
+</f:view>
+</html>

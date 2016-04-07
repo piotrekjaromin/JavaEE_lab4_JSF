@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h:form>
+        <h:panelGrid columns="3">
+
+            <h:outputLabel for="name" value="name"/>
+            <h:inputText id="name" value="#{shopSurvey.currentSurvey.name}" required="true"/>
+            <h:message for="name"/>
+
+            <h:outputLabel for="mail" value="mail"/>
+            <h:inputText id="mail" value="#{shopSurvey.currentSurvey.mail}" required="true">
+                <f:validateRegex
+                        pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"/>
+            </h:inputText>
+            <h:message for="mail"/>
+
+            <h:outputLabel for="zipCode" value="zipCode"/>
+            <h:inputText id="zipCode" value="#{shopSurvey.currentSurvey.zipCode}" required="true">
+                <f:validateRegex
+                        pattern="^[0-9]{2}\-([0-9]{3})$"/>
+            </h:inputText>
+            <h:message for="zipCode"/>
+
+            <h:outputLabel for="age" value="age"/>
+            <h:inputText id="age" value="#{shopSurvey.currentSurvey.age}" required="true">
+                <f:validateLongRange maximum="100" minimum="10"/>
+            </h:inputText>
+            <h:message for="age"/>
+
+            <h:outputLabel for="sex" value="sex"/>
+            <h:selectOneRadio id="sex" value="#{shopSurvey.currentSurvey.sex}" required="true">
+                <f:selectItem itemValue="male" itemLabel="male"/>
+                <f:selectItem itemValue="female" itemLabel="female"/>
+            </h:selectOneRadio>
+            <h:message for="sex" />
+
+            <h:outputLabel for="education" value="education"/>
+            <h:inputText id="education" value="#{shopSurvey.currentSurvey.education}"/>
+            <h:message for="sex"/>
+
+            <h:outputLabel for="size" value="size"/>
+            <h:inputText id="size" value="#{shopSurvey.currentSurvey.size}" required="true">
+                <f:validateLongRange minimum="20" maximum="50" />
+            </h:inputText>
+            <h:message for="size"/>
+
+        </h:panelGrid>
+
+            <h:outputLabel for="nextPage" value="nextPage"/>
+            <h:commandButton id="nextPage" action="#{shopSurvey.nextPage()}" value="next page"/>
+
+
+    </h:form>
+
+    <h:dataTable>
+        
+    </h:dataTable>
+</f:view>
+</html>

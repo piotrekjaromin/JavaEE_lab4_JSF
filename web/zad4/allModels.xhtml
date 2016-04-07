@@ -6,38 +6,41 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
-        <h:outputLabel
     <ui:repeat value="#{modelingAgencyBean.modelingAgencyDatas}" var="data">
-        <h:outputLabel value="#{data.name}"/>
-        <h:outputLabel value="#{data.surname}"/>
-        <h:outputLabel value="#{data.address.country}"/>
-        <h:outputLabel value="#{data.address.city}"/>
-        <h:outputLabel value="#{data.address.number}"/>
-        <h:outputLabel value="#{data.phoneNumber}"/>
-        <h:outputLabel value="#{data.mail}"/>
-        <h:outputLabel value="#{data.age}"/>
-        <h:outputLabel value="#{data.height}"/>
-        <h:outputLabel value="#{data.weight}"/>
-        <h:outputLabel value="#{data.hairColor}"/>
-        <h:outputLabel value="#{data.eyeColor}"/>
-        <h:outputLabel value="#{data.clothSize}"/>
-        <h:outputLabel value="#{data.shoesSize}"/>
-        <h:outputLabel value="#{data.experience}"/>
-        <h:outputLabel value="#{data.sex}"/>
+        name: <h:outputLabel value="#{data.name}"/><br/>
+        surname: <h:outputLabel value="#{data.surname}"/><br/>
+        country: <h:outputLabel value="#{data.address.country}"/><br/>
+        city: <h:outputLabel value="#{data.address.city}"/><br/>
+        number: <h:outputLabel value="#{data.address.number}"/><br/>
+        phone: <h:outputLabel value="#{data.phoneNumber}"/><br/>
+        mail: <h:outputLabel value="#{data.mail}"/><br/>
+        age: <h:outputLabel value="#{data.age}"/><br/>
+        heigth: <h:outputLabel value="#{data.height}"/><br/>
+        weight<h:outputLabel value="#{data.weight}"/><br/>
+        hair color: <h:outputLabel value="#{data.hairColor}"/><br/>
+        eye color<h:outputLabel value="#{data.eyeColor}"/><br/>
+        cloth size: <h:outputLabel value="#{data.clothSize}"/><br/>
+        shoes size: <h:outputLabel value="#{data.shoesSize}"/><br/>
+        experience: <h:outputLabel value="#{data.experience}"/><br/>
+        sex: <h:outputLabel value="#{data.sex}"/><br/>
 
         <h:panelGroup rendered="#{data.sex == 'male'}" >
-            <h:outputLabel value="#{data.additionalData.chest}"/>
-            <h:outputLabel value="#{data.additionalData.waist}"/>
-            <h:outputLabel value="#{data.additionalData.legLength}"/>
+            chest: <h:outputLabel value="#{data.additionalData.chest}"/><br/>
+            waist: <h:outputLabel value="#{data.additionalData.waist}"/><br/>
+            leg length: <h:outputLabel value="#{data.additionalData.legLength}"/><br/>
         </h:panelGroup>
 
         <h:panelGroup rendered="#{data.sex == 'female'}" >
-            <h:outputLabel value="#{data.additionalData.bustSize}"/>
-            <h:outputLabel value="#{data.additionalData.cupSize}"/>
-            <h:outputLabel value="#{data.additionalData.waist}"/>
-            <h:outputLabel value="#{data.additionalData.hips}"/>
-            <h:outputLabel value="#{data.additionalData.legLength}"/>
+            bustSize: <h:outputLabel value="#{data.additionalData.bustSize}"/><br/>
+            cupSize: <h:outputLabel value="#{data.additionalData.cupSize}"/><br/>
+            waist: <h:outputLabel value="#{data.additionalData.waist}"/><br/>
+            hips: <h:outputLabel value="#{data.additionalData.hips}"/><br/>
+            leg length: <h:outputLabel value="#{data.additionalData.legLength}"/><br/>
         </h:panelGroup>
+        <br/>
+        <br/>
+        <br/>
     </ui:repeat>
+
 </f:view>
 </html>

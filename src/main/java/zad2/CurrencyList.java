@@ -9,23 +9,13 @@ import java.util.Map;
  * Created by piotrek on 02.04.16.
  */
 public class CurrencyList {
-    private List<String> currencyList = new ArrayList<String>();
-    private Map<String, Double> currencyWithValue = new HashMap<String, Double>();
-
+    private Map<String, Double> currencyWithValue;
 
     public CurrencyList() {
-        currencyList.add("PLN");
-        currencyList.add("EUR");
+        currencyWithValue=new HashMap<String, Double>();
+        currencyWithValue.put("PLN", 1.0);
+        currencyWithValue.put("EUR", Double.parseDouble(NBPConnector.exchangeRate("EUR").replaceAll(",", ".")));
     }
-
-    public List<String> getCurrencyList() {
-        return currencyList;
-    }
-
-    public void setCurrencyList(List<String> currencyList) {
-        this.currencyList = currencyList;
-    }
-
     public Map<String, Double> getCurrencyWithValue() {
         return currencyWithValue;
     }
@@ -34,18 +24,12 @@ public class CurrencyList {
         this.currencyWithValue = currencyWithValue;
     }
 
-    public boolean addCurrency(String currency) {
-        if(!currencyList.contains(currency)){
-            currencyList.add(currency);
+
+    public boolean addCurrencyWithValue(String currency) {
+        if(!currencyWithValue.containsKey(currency)){
+            currencyWithValue.put(currency, Double.parseDouble(NBPConnector.exchangeRate(currency).replaceAll(",", ".")));
             return true;
         }
         return false;
-    }
-
-    public void addCurrencyWithValue(String currency) {
-        if(!currencyWithValue.containsKey(currency)){
-            currencyWithValue.put(currency, (Double)Math.random()*100+1);
-        }
-
     }
 }

@@ -7,13 +7,14 @@ import java.io.Serializable;
 
 @ManagedBean(name="currencyConverter")
 @ApplicationScoped
-public class CurrencyConverter implements Serializable {
+public class CurrencyConverter {
     private Double amount;
     private String currencyFrom;
     private String currencyTo;
     private CurrencyList currencyList = new CurrencyList();
     private String currencyToAdd;
     private Double result;
+
 
 
     public Double getAmount() {
@@ -61,16 +62,14 @@ public class CurrencyConverter implements Serializable {
     }
 
     public String addCurrency() {
-        if(currencyList.addCurrency(currencyToAdd))
+        if(currencyList.addCurrencyWithValue(currencyToAdd))
             return "success.xhtml";
         else
             return "failure.xhtml";
     }
 
     public String convert() {
-        currencyList.addCurrencyWithValue(currencyTo);
-        currencyList.addCurrencyWithValue(currencyFrom);
-        result = amount * (currencyList.getCurrencyWithValue().get(currencyTo) / currencyList.getCurrencyWithValue().get(currencyFrom));
+        result = amount * (currencyList.getCurrencyWithValue().get(currencyFrom) / currencyList.getCurrencyWithValue().get(currencyTo));
         return "result.xhtml";
     }
 }

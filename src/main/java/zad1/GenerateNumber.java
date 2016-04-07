@@ -13,7 +13,7 @@ public class GenerateNumber implements Serializable {
 
 public String check(int number){
     if(losuj==number){
-        losuj = (int)(NBPConnector.excha);
+        losuj = (int)(Math.random()*5+1);
         return "trafiony.xhtml";
     } else
         return number + ".xhtml";
