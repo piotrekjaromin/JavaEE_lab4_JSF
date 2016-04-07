@@ -16,6 +16,8 @@ public class PersonalDataManagedBean {
     private List<PersonalData> personalsData = new ArrayList<PersonalData>();
     private PersonalData personalData = new PersonalData();
     private HtmlCommandButton confirmButton;
+    private HtmlSelectOneMenu voivode;
+
 
 
     public List<PersonalData> getPersonalsData() {
@@ -42,6 +44,13 @@ public class PersonalDataManagedBean {
         this.personalData = personalData;
     }
 
+    public HtmlSelectOneMenu getVoivode() {
+        return voivode;
+    }
+
+    public void setVoivode(HtmlSelectOneMenu voivode) {
+        this.voivode = voivode;
+    }
 
     public String add() {
         personalsData.add(personalData);
@@ -51,7 +60,12 @@ public class PersonalDataManagedBean {
 
     public void activateButton(ValueChangeEvent e)
     {
-        confirmButton.setDisabled(false);
+        if(voivode.getValue().toString().equals("select")){
+            confirmButton.setDisabled(true);
+        } else {
+            confirmButton.setDisabled(false);
+        }
+
         FacesContext context = FacesContext.getCurrentInstance();
         context.renderResponse();
     }

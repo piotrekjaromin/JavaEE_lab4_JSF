@@ -5,6 +5,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+
 <f:view>
     <h:form>
         <h:panelGrid columns="3">
@@ -54,12 +55,11 @@
 
             <h:outputLabel for="nextPage" value="nextPage"/>
             <h:commandButton id="nextPage" action="#{shopSurvey.nextPage()}" value="next page"/>
+            <h:commandButton style="display: none" id="ad" action="#{shopSurvey.clickAdd()}" />
 
 
     </h:form>
 
-    <h:dataTable>
-        
-    </h:dataTable>
+
 </f:view>
 </html>

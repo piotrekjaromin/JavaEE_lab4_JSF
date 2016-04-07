@@ -30,7 +30,7 @@
             <h:message for="sex" />
 
             <h:outputLabel for="voivodeship" value="voivodeship"/>
-            <h:selectOneMenu value="#{personalDataBean.personalData.voivodeship}" id="voivodeship" valueChangeListener="#{personalDataBean.activateButton}" immediate="true" onchange="submit()">
+            <h:selectOneMenu value="#{personalDataBean.personalData.voivodeship}" id="voivodeship" valueChangeListener="#{personalDataBean.activateButton}" binding="#{personalDataBean.voivode}" immediate="true" onchange="submit()">
                 <f:selectItem itemValue="select" itemLabel="select"/>
                 <f:selectItem itemValue="malopolska" itemLabel="malopolska"/>
                 <f:selectItem itemValue="wielkopolska" itemLabel="wielkopolska"/>

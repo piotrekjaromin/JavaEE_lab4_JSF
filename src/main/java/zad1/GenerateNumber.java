@@ -1,6 +1,5 @@
 package zad1;
 
-import com.tyrsoft.kursynbp.net.NBPConnector;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
